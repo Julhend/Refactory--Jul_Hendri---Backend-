@@ -18,7 +18,7 @@ func main() {
 	}
 
 func (mm *MeanMedian) GetMinValue() float64 {
-	sort.Float64s(mm.numbers) // sort the numbers
+	sort.Float64s(mm.numbers)
 
 	return mm.numbers[0]
 }

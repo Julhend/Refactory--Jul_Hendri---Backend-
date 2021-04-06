@@ -7,14 +7,25 @@ import (
 )
 
 func main() {
-	resp, err := http.Get("https://jsonplaceholder.typicode.com/posts")
+	respPost, err := http.Get("https://jsonplaceholder.typicode.com/posts")
 	if err != nil {
 		log.Fatalln(err)
 	}
-	body, err := ioutil.ReadAll(resp.Body)
+	bodyPost, err := ioutil.ReadAll(respPost.Body)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	sb := string(body)
-	log.Printf(sb)
+
+	respUser, err := http.Get("https://jsonplaceholder.typicode.com/users")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	bodyUser, err := ioutil.ReadAll(respUser.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	sb := string(bodyPost)
+	sb2 := string(bodyUser)
+	log.Printf("POST :", sb+"USER :", sb2)
 }
